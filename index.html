@@ -8,13 +8,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="">
-        <input type="text" id="title">
-        <input type="text" id="author">
-        <input type="number" id="pages" min="0">
-        <input type="radio" id="read">
-        <button type="submit" id="submit-btn">Add book</button>
-    </form>
+    <button id="open-modal">Add book</button>
+    <dialog class="modal" id="modal">
+        <form action="">
+            <input type="text" id="title">
+            <input type="text" id="author">
+            <input type="number" id="pages" min="0">
+            <input type="radio" id="read">
+            <button type="submit" id="submit-btn">Add book</button>
+        </form>
+        <button type="button" id="close-modal">Close</button>
+    </dialog>
     
     <script src="script.js"></script>
 </body>

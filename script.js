@@ -1,3 +1,7 @@
+const formModal = document.querySelector("#modal");
+const openModal = document.querySelector("#open-modal"); 
+const closeModal = document.querySelector("#close-modal");
+
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
 const pages = document.querySelector("#pages");
@@ -24,6 +28,14 @@ function addBookToLibrary(library, book) {
     library.push(book);
 }
 
+openModal.addEventListener("click", () => {
+    formModal.showModal();
+});
+
+closeModal.addEventListener("click", () => {
+    formModal.close();
+});
+
 form.addEventListener("submit", (event)=>{
     //prevents page from refreshing.
     event.preventDefault();
@@ -32,10 +44,5 @@ form.addEventListener("submit", (event)=>{
     addBookToLibrary(myLibrary, book);
     console.log(myLibrary);
 })
-
-//TODO: when submitting the form it should construct the object and then call the following function
-
-
-//TODO: use crypto.randomUUID() to generate a unique ID for every book.
 
 //TODO: loop through the array and display each book. 
