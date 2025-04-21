@@ -5,7 +5,7 @@
 
 :root {
     --main-color: #000033;
-    --secondary-color: #d7d7fe;
+    --secondary-color: #202060;
 }
 
 body {
@@ -46,7 +46,7 @@ header h1 {
 }
 
 #main-content {
-    background-color: var(--secondary-color);
+    background-color: #d7d7fe;
     padding: 20px;
     display: grid;
     overflow: auto;
@@ -72,13 +72,24 @@ header h1 {
     font-weight: bold;
 }
 
-.delete-container {
+.buttons-container {
     display: flex;
     justify-content: flex-end;
+    margin-top: 10px;
 }
 
-.delete-container > button {
+.buttons-container > button {
     background: none;
-    padding: 5px;
+    padding: 3px;
     border-radius: 5px;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    box-sizing: border-box;
+    border: 1px solid darkred;
+    color: white;
+    background-color: red;
 }
