@@ -48,12 +48,20 @@ form.addEventListener("submit", (event)=>{
 
     const bookContainer = document.createElement("div");
     bookContainer.classList.add("book-container");
-    bookContainer.textContent = book.title;
+    bookContainer.textContent = title.name;
 
-    const deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("delete-btn");
-    deleteBtn.textContent = "X";
-    bookContainer.appendChild(deleteBtn);
+    for (const [key, value] of Object.entries(book)) {
+        let content = document.createElement("div");
+        let keys = document.createElement("span");
+        let values = document.createElement("p")
+
+        keys.classList.add("key");
+        keys.textContent = `${key}`
+        values.textContent = ` : ${value}`;
+
+        content.append(keys, ":", values);
+        bookContainer.appendChild(content);
+    }
 
     main.appendChild(bookContainer);
 })
