@@ -65,6 +65,12 @@ form.addEventListener("submit", (event)=>{
         bookContainer.appendChild(content);
     }
 
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    read.checked = false;
+
+    //adding the delete button at the bottom.
     let btnContainer = document.createElement("div");
     let deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
@@ -75,11 +81,7 @@ form.addEventListener("submit", (event)=>{
     bookContainer.appendChild(btnContainer);
     main.appendChild(bookContainer);
 
-    let deleteBtns = document.querySelectorAll(".delete-btn");
-
-    for (let deleteBtn of deleteBtns) {
-        deleteBtn.addEventListener("click", () => {
-            console.log("working");
-        })
-    }
+    deleteBtn.addEventListener("click", () => {
+        main.removeChild(bookContainer)
+    })
 })
