@@ -42,7 +42,9 @@ form.addEventListener("submit", (event)=>{
     //prevents page from refreshing.
     event.preventDefault();
 
-    const book = new Book(title.value, author.value, pages.value, read.value, crypto.randomUUID());
+    let readBool = (read.checked) ? true : false;
+
+    const book = new Book(title.value, author.value, pages.value, readBool, crypto.randomUUID());
     addBookToLibrary(myLibrary, book);
     console.log(myLibrary);
 
@@ -59,11 +61,25 @@ form.addEventListener("submit", (event)=>{
         keys.textContent = `${key}`
         values.textContent = ` : ${value}`;
 
-        content.append(keys, ":", values);
+        content.append(keys, values);
         bookContainer.appendChild(content);
     }
 
-    main.appendChild(bookContainer);
-})
+    let btnContainer = document.createElement("div");
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.classList.add("delete-btn");
+    btnContainer.classList.add("buttons-container");
 
-//TODO: loop through the array and display each book. 
+    btnContainer.appendChild(deleteBtn);
+    bookContainer.appendChild(btnContainer);
+    main.appendChild(bookContainer);
+
+    let deleteBtns = document.querySelectorAll(".delete-btn");
+
+    for (let deleteBtn of deleteBtns) {
+        deleteBtn.addEventListener("click", () => {
+            console.log("working");
+        })
+    }
+})
