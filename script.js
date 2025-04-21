@@ -8,6 +8,8 @@ const pages = document.querySelector("#pages");
 const read = document.querySelector("#read");
 const form = document.querySelector("form");
 
+let main = document.querySelector("#main-content");
+
 let myLibrary = [];
 
 //constructor
@@ -43,6 +45,17 @@ form.addEventListener("submit", (event)=>{
     const book = new Book(title.value, author.value, pages.value, read.value, crypto.randomUUID());
     addBookToLibrary(myLibrary, book);
     console.log(myLibrary);
+
+    const bookContainer = document.createElement("div");
+    bookContainer.classList.add("book-container");
+    bookContainer.textContent = book.title;
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.textContent = "X";
+    bookContainer.appendChild(deleteBtn);
+
+    main.appendChild(bookContainer);
 })
 
 //TODO: loop through the array and display each book. 
