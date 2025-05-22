@@ -85,3 +85,5 @@ form.addEventListener("submit", (event)=>{
         main.removeChild(bookContainer)
     })
 })
+
+//TODO: add ability to change read status.
