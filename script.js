@@ -14,11 +14,11 @@ let myLibrary = [];
 
 class Book {
     constructor(title, author, pages, read) {
-        this._title = title;
-        this._author = author;
-        this._pages = pages;
-        this._read = read;
-        this._id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = crypto.randomUUID();
     }
 }
 
@@ -40,7 +40,7 @@ form.addEventListener("submit", (event) => {
 
     let readBool = (read.checked) ? true : false;
 
-    const book = new Book(title.value, author.value, pages.value, readBool, crypto.randomUUID());
+    const book = new Book(title.value, author.value, pages.value, readBool);
     addBookToLibrary(myLibrary, book);
     console.log(myLibrary);
 
