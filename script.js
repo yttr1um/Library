@@ -1,5 +1,5 @@
 const formModal = document.querySelector("#modal");
-const openModal = document.querySelector("#open-modal"); 
+const openModal = document.querySelector("#open-modal");
 const closeModal = document.querySelector("#close-modal");
 
 const title = document.querySelector("#title");
@@ -12,18 +12,14 @@ let main = document.querySelector("#main-content");
 
 let myLibrary = [];
 
-//constructor
-function Book(title, author, pages, read, id) {
-
-    if (!new.target) {
-        throw Error("You have to use the \"new\" keyword to construct a new object");
+class Book {
+    constructor(title, author, pages, read) {
+        this._title = title;
+        this._author = author;
+        this._pages = pages;
+        this._read = read;
+        this._id = crypto.randomUUID();
     }
-
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.id = id;
 }
 
 function addBookToLibrary(library, book) {
@@ -38,7 +34,7 @@ closeModal.addEventListener("click", () => {
     formModal.close();
 });
 
-form.addEventListener("submit", (event)=>{
+form.addEventListener("submit", (event) => {
     //prevents page from refreshing.
     event.preventDefault();
 
@@ -85,5 +81,3 @@ form.addEventListener("submit", (event)=>{
         main.removeChild(bookContainer)
     })
 })
-
-//TODO: add ability to change read status.
